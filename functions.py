@@ -1,4 +1,4 @@
-def decforbin(number):
+def dectobin(number):
     result = []
     numbconv = ''
     while number >= 1:
@@ -9,7 +9,7 @@ def decforbin(number):
         numbconv += item
     return numbconv
 
-def decforoct(number):
+def dectooct(number):
     result = []
     numbconv = ''
     while number >= 1:
@@ -20,7 +20,7 @@ def decforoct(number):
         numbconv += item
     return numbconv
 
-def decforhex(number):
+def dectohex(number):
     result = []
     numbconv = ''
     while number >= 1:
@@ -44,41 +44,41 @@ def decforhex(number):
         numbconv += item
     return numbconv
     
-def binfordec(number):
+def bintodec(number):
     numbconv = 0
     number = str(number)
     for i in range(len(number)):
         numbconv += (2**i)* int(number[-(i+1)])
     return numbconv
 
-def binforoct(number):
+def bintooct(number):
     dec = binfordec(number)
     numbconv = decforoct(dec)
     return numbconv
 
-def binforhex(number):
+def bintohex(number):
     dec = binfordec(number)
     numbconv = decforhex(dec)
     return numbconv
 
-def octfordec(number):
+def octtodec(number):
     numbconv = 0
     number = str(number)
     for i in range(len(number)):
         numbconv += (8**i)* int(number[-(i+1)])
     return numbconv
 
-def octforbin(number):
+def octtobin(number):
     dec = octfordec(number)
     numbconv = decforbin(dec)
     return numbconv
 
-def octforhex(number):
+def octtohex(number):
     dec = octfordec(number)
     numbconv = decforhex(dec)
     return numbconv
 #usar numero como string em numeros hexadecimais pois da erro de sintaxe se é escrito sem aspas
-def hexfordec(number):
+def hextodec(number):
     numbconv = 0
     number = str(number)
     for i in range(len(number)):
@@ -98,12 +98,12 @@ def hexfordec(number):
             numbconv += (16**i)* int(number[-(i+1)])
     return numbconv
 
-def hexforbin(number):
+def hextobin(number):
     dec = hexfordec(number)
     numbconv = decforbin(dec)
     return numbconv
 
-def hexforoct(number):
+def hextooct(number):
     dec = hexfordec(number)
     numbconf = decforoct(dec)
     return numbconf
