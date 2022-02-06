@@ -1,3 +1,4 @@
+from tkinter import *
 def dectobin(number):
     result = []
     numbconv = ''
@@ -52,13 +53,13 @@ def bintodec(number):
     return numbconv
 
 def bintooct(number):
-    dec = binfordec(number)
-    numbconv = decforoct(dec)
+    dec = bintodec(number)
+    numbconv = dectooct(dec)
     return numbconv
 
 def bintohex(number):
-    dec = binfordec(number)
-    numbconv = decforhex(dec)
+    dec = bintodec(number)
+    numbconv = dectohex(dec)
     return numbconv
 
 def octtodec(number):
@@ -69,13 +70,13 @@ def octtodec(number):
     return numbconv
 
 def octtobin(number):
-    dec = octfordec(number)
-    numbconv = decforbin(dec)
+    dec = octtodec(number)
+    numbconv = dectobin(dec)
     return numbconv
 
 def octtohex(number):
-    dec = octfordec(number)
-    numbconv = decforhex(dec)
+    dec = octtodec(number)
+    numbconv = dectohex(dec)
     return numbconv
 #usar numero como string em numeros hexadecimais pois da erro de sintaxe se é escrito sem aspas
 def hextodec(number):
@@ -99,11 +100,13 @@ def hextodec(number):
     return numbconv
 
 def hextobin(number):
-    dec = hexfordec(number)
-    numbconv = decforbin(dec)
+    dec = hextodec(number)
+    numbconv = dectobin(dec)
     return numbconv
 
 def hextooct(number):
-    dec = hexfordec(number)
-    numbconf = decforoct(dec)
+    dec = hextodec(number)
+    numbconf = dectooct(dec)
     return numbconf
+
+
