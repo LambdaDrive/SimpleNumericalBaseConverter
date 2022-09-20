@@ -2,6 +2,7 @@ from tkinter import *
 def dectobin(number):
     result = []
     numbconv = '0b'
+    number = int(number)
     while number >= 1:
         result.append(str(number % 2))
         number = number // 2
@@ -13,6 +14,7 @@ def dectobin(number):
 def dectooct(number):
     result = []
     numbconv = '0o'
+    number = int(number)
     while number >= 1:
         result.append(str(number % 8))
         number = number // 8
@@ -24,6 +26,7 @@ def dectooct(number):
 def dectohex(number):
     result = []
     numbconv = '0x'
+    number = int(number)
     while number >= 1:
         if number % 16 == 10:
             result.append('A')
@@ -47,8 +50,8 @@ def dectohex(number):
     
 def bintodec(number):
     numbconv = 0
-    number = str(number)
-    for i in range(2, len(number)):
+    number = str(number)[2:]
+    for i in range(len(number)):
         numbconv += (2**i)* int(number[-(i+1)])
     return numbconv
 
@@ -64,8 +67,8 @@ def bintohex(number):
 
 def octtodec(number):
     numbconv = 0
-    number = str(number)
-    for i in range(2, len(number)):
+    number = str(number)[2:]
+    for i in range(len(number)):
         numbconv += (8**i)* int(number[-(i+1)])
     return numbconv
 
@@ -81,8 +84,8 @@ def octtohex(number):
 #usar numero como string em numeros hexadecimais pois da erro de sintaxe se é escrito sem aspas
 def hextodec(number):
     numbconv = 0
-    number = str(number)
-    for i in range(2, len(number)):
+    number = str(number)[2:]
+    for i in range(len(number)):
         if number[-(i+1)] == 'A':
             numbconv += (16**i) * 10
         elif number[-(i+1)] == 'B':

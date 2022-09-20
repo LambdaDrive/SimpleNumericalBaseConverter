@@ -5,15 +5,44 @@ def convert():
     global radiobuttonvar, converted
     radiobutton = radiobuttonvar.get()
     numberconvert = converted.get()
+    converted.delete(0, END)
     if radiobutton == 1:
-        if
-        result = functions.dectobin(int(numberconvert))
+        if numberconvert[0:2] == '0x':
+            result = functions.hextodec(numberconvert)
+        elif numberconvert[0:2] == '0b':
+            result = functions.bintodec(numberconvert)
+        elif numberconvert[:2] == '0o':
+            result = functions.octtodec(numberconvert)
+        else:
+            result = numberconvert
     elif radiobutton == 2:
-        result = functions.dectooct(int(numberconvert))
+        if numberconvert[0:2] == '0x':
+            result = functions.hextobin(numberconvert)
+        elif numberconvert[:2] == '0o':
+            result = functions.octtobin(numberconvert)
+        elif numberconvert[0:2] != '0x' or '0b' or '0o':
+            result = functions.dectobin(numberconvert)
+        else:
+            result = numberconvert
+       
     elif radiobutton == 3:
-        result = functions.dectohex(int(numberconvert))
+        if numberconvert[0:2] == '0x':                
+            result = functions.hextooct(numberconvert)
+        elif numberconvert[:2] == '0b':               
+            result = functions.bintooct(numberconvert)
+        elif numberconvert[0:2] != '0x' or '0b' or '0o':                                                          
+            result = functions.dectooct(numberconvert)
+        else:                                         
+            result = numberconvert   
     elif radiobutton == 4:
-        result = functions.bintodec(numberconvert)
+        if numberconvert[0:2] == '0o':                
+            result = functions.octtohex(numberconvert)
+        elif numberconvert[:2] == '0b':               
+            result = functions.bintohex(numberconvert)
+        elif numberconvert[0:2] != '0x' or '0b' or '0o':                                                          
+            result = functions.dectohex(numberconvert)                                                            
+        else:                                         
+            result = numberconvert                  
     converted.insert(0, str(result))
 
 root = Tk()
